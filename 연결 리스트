@@ -30,5 +30,9 @@ int main()
 		curr = curr->next;    // 포인터에 다음 노드의 주소 저장
 	}
 
+	free(node2);
+    	free(node1);
+    	free(head);
 
+	return 0;
 }
