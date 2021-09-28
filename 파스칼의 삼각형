@@ -1,0 +1,29 @@
+#pragma warning (disable : 4996)
+# include <stdio.h>
+#define N 10
+
+long combi(int, int); // 수학에서 조함 (combination)
+// 수합 확률과 통꼐 단원 순열 (permutation)과 조합 (combination)	
+
+int main()
+{
+	int n, r, t; // nPr 순열 공식, nCr 조합 공식
+	for (n = 0; n <= N; n++) // 층수
+	{
+		for (t = 0; t < (N - n) * 3; t++)  // 앞의 빈 공간 개수
+			printf(" ");
+		for (r = 0; r <= n; r++)
+			printf("%3d   ", combi(n, r));  // 값을 넣고 3칸 뛰우기
+		printf("\n");
+	}
+	return 0;
+}
+
+long combi( int n, int r)
+{
+	int i;
+	long c = 1;
+	for (i = 1; i <= r; i++) // 파스칼의 삼각형 수 구하기
+		c = c * (n - i + 1) / i;
+	return c;
+}
