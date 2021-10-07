@@ -1,0 +1,77 @@
+문제
+
+길동이는 축구 경기를 좋아하는 사람이었다. 아무도 축구에 대한 그의 열정을 막을 수 없었고, 
+결국 길동이는 축구장을 청소하는 일을 시작했고 축구장을 청소하면서 감독이 되기 위해 필요한 능력을 배워나갔다. 
+서당 개 3년이면 풍월을 읊듯이 길동이도 점점 감독으로 한 걸음씩 다가가고 있었다. 
+어느 날 그에게 지방의 한 프로축구팀을 감독할 기회가 생기게 되었고 그는 엄청난 지도력을 보여주며 대회에서 우승을 했고, 나아가 국가대표팀의 감독이 되었다.
+내일은 일본과 국가대표 친선 경기가 있는 날이다. 길동이는 내일 경기에 나설 선발 명단을 작성해야 한다.
+국가대표팀의 감독이 된 이후에 길동이는 매우 게을러졌다. 그는 선수의 이름을 기억하지 못하고, 각 선수의 능력도 알지 못한다. 
+따라서, 누가 선발인지 기억하기 쉽게 하기 위해 성의 첫 글자가 같은 선수 5명을 선발하려고 한다. 
+만약, 성의 첫 글자가 같은 선수가 5명보다 적다면, 상근이는 내일 있을 친선 경기를 기권하려고 한다.
+길동이는 내일 경기를 위해 뽑을 수 있는 성의 첫 글자를 모두 구해보려고 한다.
+
+코드 
+
+#pragma warning (disable : 4996)
+#include<stdio.h>
+
+int main() {
+    int n, count[26] = { 0, }, check = 0;
+    char name[30]; // 이름 30자 제한
+
+        scanf("%d", &n); // 선수들의 수를 입력받기
+
+    for (int i = 0; i < n; i++) {
+        scanf("%s", name);
+        count[name[0] - 'a']++;   // 문자열의 맨 앞자리가 같은 단어일때 count의 수를 올려준다.
+    }
+
+    printf("\n");  // 깔끔하게 보이기 위해 한칸 내려줌
+
+    for (int i = 0; i < 26; i++)
+        if (count[i] >= 5) {  // count 수가 5보다 크거나 같을때 실행
+            check++;               // 같은 단어가 5개 있을경우 check를 올려준다.
+            printf("%c", 'a' + i);
+        }
+
+    if (!check) printf("giveup");  // check에 없으면 'giveup'을 나타냄
+
+}
+
+
+예제 입력
+
+14                           
+babic
+keksic
+boric
+bukic
+sarmic
+balic  
+kruzic
+hrenovkic
+beslic
+krafnic
+pecivic
+klavirkovic
+kukumaric
+sunkic
+
+예제 출력
+
+dk
+
+예제 입력 2              
+8
+michael                      
+jordan
+lebron
+james             
+kobe
+bryant
+Waybe
+Trump
+
+예제 출력 2
+ 
+ giveup
