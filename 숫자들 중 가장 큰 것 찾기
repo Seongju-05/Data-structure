@@ -1,0 +1,50 @@
+문제 제목 : 숫자들 중 가장 큰 것 찾기
+
+문제
+
+숫자 하나를 입력받아 그 중 가장 크 숫자를 출력해보자.
+예를 들면 589라면 9가 가장 크다.
+1273이라면 7이 가장 큰 수가 된다.
+
+입력 예시 1
+
+589
+
+출력 예시1
+
+9
+
+입력 예시2
+
+6712
+
+출력 예시2
+
+7
+
+
+ㅡ코드ㅡ
+
+#include <stdio.h> 
+
+int main() 
+{ 
+int a, b, c, max; 
+
+scanf("%d %d %d", &a, &b, &c); 
+
+if (a >= b) { max = a; min = b; } 
+
+else { max = b; min = a; } 
+
+if (c > max) max = c; 
+
+if (c < min) min = c; 
+
+printf("\n세 개의 정수 중\n"); 
+
+printf("가장 큰 수는 %d이고,\n", max); 
+
+return 0; 
+
+}
